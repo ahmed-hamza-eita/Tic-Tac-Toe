@@ -10,4 +10,10 @@
     <color name="dark_blue">#101132</color>
     <color name="light_white">#80FFFFFF</color>
     <color name="purple">#6648c3</color>
+
+
+    <color name="colorPrimary">#3991aa</color>
+    <color name="colorPrimaryDark">#184b5a</color>
+    <color name="colorBackground">#26697c</color>
+    <color name="colorAcccent">#0a3664</color>
 </resources>
