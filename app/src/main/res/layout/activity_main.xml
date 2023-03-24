@@ -20,9 +20,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/co"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:id="@+id/co"
         android:layout_alignParentStart="true"
         android:gravity="center"
         android:orientation="horizontal"
@@ -101,174 +101,40 @@
         android:padding="16dp"
         android:rowCount="3"
         android:useDefaultMargins="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnReset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/co" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_result" />
 
     <Button
         android:id="@+id/btnReset"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.5"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAcccent"
         android:text="@string/reset"
         android:textAllCaps="false"
-        android:backgroundTint="@color/colorAcccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_board" />
-
-    <!--    <LinearLayout-->
-    <!--        android:id="@+id/container"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        android:layout_marginStart="@dimen/_8sdp"-->
-    <!--        android:layout_marginEnd="@dimen/_8sdp"-->
-    <!--        android:layout_marginBottom="@dimen/_50sdp"-->
-    <!--        android:background="@drawable/round_back_purple"-->
-    <!--        android:orientation="vertical">-->
+        app:layout_constraintTop_toBottomOf="@id/layout_board"
+        app:layout_constraintWidth_percent="0.5" />
 
 
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:orientation="horizontal"-->
-    <!--            android:weightSum="3">-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img1"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img2"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img3"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-    <!--        </LinearLayout>-->
-
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:orientation="horizontal"-->
-    <!--            android:weightSum="3">-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img4"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img5"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img6"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-    <!--        </LinearLayout>-->
-
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:orientation="horizontal"-->
-    <!--            android:weightSum="3">-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img7"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img8"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-
-    <!--            <ImageView-->
-    <!--                android:id="@+id/img9"-->
-    <!--                android:layout_width="@dimen/_40sdp"-->
-    <!--                android:layout_height="@dimen/_80sdp"-->
-    <!--                android:layout_marginStart="10dp"-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_marginEnd="5dp"-->
-    <!--                android:layout_marginBottom="5dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@drawable/round_back_dark_blue"-->
-    <!--                android:padding="@dimen/_16sdp" />-->
-    <!--        </LinearLayout>-->
-    <!--    </LinearLayout>-->
+    <TextView
+        android:id="@+id/text_view_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_25ssp"
+        android:textStyle="bold"
+        app:fontFamily="casual"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/co"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

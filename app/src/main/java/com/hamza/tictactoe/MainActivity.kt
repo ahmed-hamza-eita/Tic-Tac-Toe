@@ -2,10 +2,13 @@ package com.hamza.tictactoe
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.view.View
 import android.widget.GridLayout
 import android.widget.ImageView
 import com.hamza.tictactoe.databinding.ActivityMainBinding
+import com.hamza.tictactoe.models.Board
+import com.hamza.tictactoe.models.Cell
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
@@ -13,16 +16,47 @@ class MainActivity : AppCompatActivity() {
     private val boardCells = Array(3) {
         arrayOfNulls<ImageView>(3)
     }
-
+    var board = Board()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding?.root)
         loadBoard()
+        actions()
 
     }
 
-    fun loadBoard() {
+    private fun actions() {
+        binding.btnReset.setOnClickListener {
+            board = Board()
+            binding.textViewResult.text = ""
+            mapBoardToUi()
+        }
+    }
+
+    private fun mapBoardToUi() {
+
+        for (i in board.board.indices) {
+            for (j in board.board.indices) {
+                when (board.board[i][j]) {
+                    Board.player -> {
+                        boardCells[i][j]?.setImageResource(R.drawable.o)
+                        boardCells[i][j]?.isEnabled = false
+                    }
+                    Board.computer -> {
+                        boardCells[i][j]?.setImageResource(R.drawable.x)
+                        boardCells[i][j]?.isEnabled = false
+                    }
+                    else -> {
+                        boardCells[i][j]?.setImageResource(0)
+                        boardCells[i][j]?.isEnabled = true
+                    }
+                }
+            }
+        }
+    }
+
+    private fun loadBoard() {
         for (i in boardCells.indices) {
             for (j in boardCells.indices) {
                 boardCells[i][j] = ImageView(this)
@@ -37,10 +71,26 @@ class MainActivity : AppCompatActivity() {
                     bottomMargin = 5
                 }
                 boardCells[i][j]?.setBackgroundColor(getColor(R.color.colorPrimary))
+                boardCells[i][j]?.setOnClickListener(CellClickListener(i, j))
                 binding.layoutBoard.addView(boardCells[i][j])
             }
 
         }
+
+    }
+
+    inner class CellClickListener(private val i: Int, private val j: Int) : View.OnClickListener {
+        override fun onClick(p0: View?) {
+            val cell = Cell(i, j)
+            board.placeMove(cell, Board.player)
+            if (board.availableCells.isNotEmpty()) {
+                val cCell = board.availableCells[Random.nextInt(0, board.availableCells.size)]
+                board.placeMove(cCell, Board.computer)
+            }
+
+            mapBoardToUi()
+        }
+
     }
 
     override fun onDestroy() {
