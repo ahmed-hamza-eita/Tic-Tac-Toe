@@ -81,17 +81,25 @@ class MainActivity : AppCompatActivity() {
 
     inner class CellClickListener(private val i: Int, private val j: Int) : View.OnClickListener {
         override fun onClick(p0: View?) {
-            val cell = Cell(i, j)
-            board.placeMove(cell, Board.player)
-            if (board.availableCells.isNotEmpty()) {
-                val cCell = board.availableCells[Random.nextInt(0, board.availableCells.size)]
-                board.placeMove(cCell, Board.computer)
-            }
+            if (!board.isGameOver) {
+                val cell = Cell(i, j)
+                board.placeMove(cell, Board.player)
+                board.miniMax(0, Board.computer)
+                board.computerMove?.let {
+                    board.placeMove(it, Board.computer)
+                }
 
-            mapBoardToUi()
+                mapBoardToUi()
+            }
+            when {
+                board.ifComputerWon() -> binding.textViewResult.text = "Computer Won"
+                board.ifPlayerWon() -> binding.textViewResult.text = "Player Won"
+                board.isGameOver -> binding.textViewResult.text = "Game Over"
+            }
         }
 
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
