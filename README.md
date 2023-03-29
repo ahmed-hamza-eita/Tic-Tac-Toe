@@ -10,7 +10,7 @@ Minimax algorithm is a decision rule used in artificial intelligence, decision t
 ## Here's a pseudocode :- 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/80759221/228576543-f4759422-9336-4b5f-bf07-4f026c9066e3.png" 
-width ="50%" height="50%"
+width ="70%" height="70%"
 </p>
 
 ## How does it works?
@@ -27,5 +27,5 @@ width ="50%" height="50%"
 ## Game Tree
 <p align="center">
 <img src="https://user-images.githubusercontent.com/80759221/228578189-58f5b117-4e3a-4450-9da9-155d99436046.png" 
-width ="50%" height="50%"
+width ="70%" height="70%"
 </p>
