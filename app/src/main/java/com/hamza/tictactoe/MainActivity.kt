@@ -13,9 +13,11 @@ import kotlin.random.Random
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
+
     private val boardCells = Array(3) {
         arrayOfNulls<ImageView>(3)
     }
+
     var board = Board()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(_binding?.root)
         loadBoard()
         actions()
+
+    }
+
+    //setup board
+    private fun loadBoard() {
+        for (i in boardCells.indices) {
+            for (j in boardCells.indices) {
+                boardCells[i][j] = ImageView(this)
+                boardCells[i][j]?.layoutParams = GridLayout.LayoutParams().apply {
+                    rowSpec = GridLayout.spec(i)
+                    columnSpec = GridLayout.spec(j)
+                    width = 250
+                    height = 250
+                    topMargin = 5
+                    rightMargin = 5
+                    leftMargin = 5
+                    bottomMargin = 5
+                }
+                boardCells[i][j]?.setBackgroundColor(getColor(R.color.colorPrimary))
+                boardCells[i][j]?.setOnClickListener(CellClickListener(i, j))
+                binding.layoutBoard.addView(boardCells[i][j])
+            }
+
+        }
 
     }
 
@@ -56,28 +82,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadBoard() {
-        for (i in boardCells.indices) {
-            for (j in boardCells.indices) {
-                boardCells[i][j] = ImageView(this)
-                boardCells[i][j]?.layoutParams = GridLayout.LayoutParams().apply {
-                    rowSpec = GridLayout.spec(i)
-                    columnSpec = GridLayout.spec(j)
-                    width = 250
-                    height = 250
-                    topMargin = 5
-                    rightMargin = 5
-                    leftMargin = 5
-                    bottomMargin = 5
-                }
-                boardCells[i][j]?.setBackgroundColor(getColor(R.color.colorPrimary))
-                boardCells[i][j]?.setOnClickListener(CellClickListener(i, j))
-                binding.layoutBoard.addView(boardCells[i][j])
-            }
-
-        }
-
-    }
 
     inner class CellClickListener(private val i: Int, private val j: Int) : View.OnClickListener {
         override fun onClick(p0: View?) {

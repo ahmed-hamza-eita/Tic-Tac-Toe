@@ -12,6 +12,24 @@ class Board {
         arrayOfNulls<String>(3)
     }
 
+    fun placeMove(cell: Cell, player: String) {
+        board[cell.i][cell.j] = player
+    }
+
+    val availableCells: List<Cell>
+        get() {
+            val cells = mutableListOf<Cell>()
+            for (i in board.indices) {
+                for (j in board.indices) {
+                    if (board[i][j].isNullOrEmpty()) {
+                        cells.add(Cell(i, j))
+                    }
+                }
+            }
+            return cells
+        }
+    val isGameOver: Boolean get() = ifComputerWon() || ifPlayerWon() || availableCells.isEmpty()
+
     fun ifComputerWon(): Boolean {
         if (board[0][0] == board[1][1] &&
             board[0][0] == board[2][2] &&
@@ -64,20 +82,6 @@ class Board {
         return false
     }
 
-    val availableCells: List<Cell>
-        get() {
-            val cells = mutableListOf<Cell>()
-            for (i in board.indices) {
-                for (j in board.indices) {
-                    if (board[i][j].isNullOrEmpty()) {
-                        cells.add(Cell(i, j))
-                    }
-                }
-            }
-            return cells
-        }
-    val isGameOver: Boolean get() = ifComputerWon() || ifPlayerWon() || availableCells.isEmpty()
-
     var computerMove: Cell? = null
     fun miniMax(depth: Int, Player: String): Int {
         if (ifComputerWon()) return +1
@@ -85,7 +89,7 @@ class Board {
         if (availableCells.isEmpty()) return 0
 
         var min = Integer.MAX_VALUE
-        var max = Integer.MIN_VALUE
+        var max = Integer.MIN_VALUE //is updated with the highest score found
         for (i in availableCells.indices) {
             val cell = availableCells[i]
             if (Player == computer) {
@@ -95,19 +99,22 @@ class Board {
                 if (currentScore >= 0) {
                     if (depth == 0) computerMove = cell
                 }
-                if (currentScore == 1) {
+                if (currentScore == 1) { //pc has won
                     board[cell.i][cell.j] = ""
                     break
                 }
                 if (i == availableCells.size - 1 && max < 0) {
                     if (depth == 0) computerMove = cell
+                    //this code block is used to handle the edge case
+                    // where the computer has no winning moves and must make a move that leads to a draw.
+                    // If this case is not handled properly, the minimax algorithm may return an incorrect move for the computer player.
                 }
             } else if (Player == player) {
                 placeMove(cell, player)
                 val currentScore = miniMax(depth + 1, computer)
                 min = Math.min(currentScore, min)
 
-                if (min == -1) {
+                if (min == -1) { //user has won
                     board[cell.i][cell.j] = ""
                     break
                 }
@@ -117,7 +124,5 @@ class Board {
         return if (Player == computer) max else min
     }
 
-    fun placeMove(cell: Cell, player: String) {
-        board[cell.i][cell.j] = player
-    }
+
 }
