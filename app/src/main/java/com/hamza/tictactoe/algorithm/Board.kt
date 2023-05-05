@@ -1,6 +1,4 @@
-package com.hamza.tictactoe.models
-
-import android.icu.number.IntegerWidth
+package com.hamza.tictactoe.algorithm
 
 class Board {
     companion object {
@@ -99,15 +97,13 @@ class Board {
                 if (currentScore >= 0) {
                     if (depth == 0) computerMove = cell
                 }
-                if (currentScore == 1) { //pc has won
+                if (currentScore == 1) {
                     board[cell.i][cell.j] = ""
                     break
                 }
                 if (i == availableCells.size - 1 && max < 0) {
                     if (depth == 0) computerMove = cell
-                    //this code block is used to handle the edge case
-                    // where the computer has no winning moves and must make a move that leads to a draw.
-                    // If this case is not handled properly, the minimax algorithm may return an incorrect move for the computer player.
+
                 }
             } else if (Player == player) {
                 placeMove(cell, player)

@@ -6,9 +6,8 @@ import android.view.View
 import android.widget.GridLayout
 import android.widget.ImageView
 import com.hamza.tictactoe.databinding.ActivityMainBinding
-import com.hamza.tictactoe.models.Board
-import com.hamza.tictactoe.models.Cell
-import kotlin.random.Random
+import com.hamza.tictactoe.algorithm.Board
+import com.hamza.tictactoe.algorithm.Cell
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
