@@ -11,12 +11,12 @@ Minimax algorithm is a decision rule used in artificial intelligence, decision t
 ## How does it works?
 Minimax is a decision-making algorithm used in game theory, particularly in two-player games like Tic Tac Toe. The algorithm is used to determine the best possible move a player can make at any given point in the game. Here's how minimax works in Tic Tac Toe:
 
-1-The algorithm starts by creating a game tree that shows all possible moves and outcomes for both players.<br>
-2-Each node in the game tree represents a possible state of the game, with edges representing the possible moves from that state.<br>
-3-At the bottom of the tree, the algorithm assigns a score to each possible end state (win, loss, or draw) based on who wins the game.<br>
-4-The algorithm then works its way back up the tree, evaluating each node's score based on whether it's a player's turn or the opponent's turn.<br>
-5-The algorithm assumes that both players are playing optimally, so it alternates between maximizing the score for itself and minimizing the score for its opponent.<br>
-6-Finally, the algorithm chooses the move that leads to the highest score for itself.<br>
+-The algorithm starts by creating a game tree that shows all possible moves and outcomes for both players.<br>
+-Each node in the game tree represents a possible state of the game, with edges representing the possible moves from that state.<br>
+-At the bottom of the tree, the algorithm assigns a score to each possible end state (win, loss, or draw) based on who wins the game.<br>
+-The algorithm then works its way back up the tree, evaluating each node's score based on whether it's a player's turn or the opponent's turn.<br>
+-The algorithm assumes that both players are playing optimally, so it alternates between maximizing the score for itself and minimizing the score for its opponent.<br>
+-Finally, the algorithm chooses the move that leads to the highest score for itself.<br>
   
 In summary, minimax in Tic Tac Toe works by recursively evaluating all possible moves and outcomes in a game tree and choosing the move that leads to the best possible outcome for the player using the algorithm
 
