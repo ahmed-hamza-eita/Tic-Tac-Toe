@@ -26,6 +26,6 @@ width ="70%" height="70%"
 
 ## Game Tree
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80759221/228578189-58f5b117-4e3a-4450-9da9-155d99436046.png" 
+<img src="https://user-images.githubusercontent.com/80759221/236447424-85be5d46-6208-4559-9ccb-2d3625c31245.jpg" 
 width ="70%" height="70%"
 </p>
