@@ -7,22 +7,17 @@ An implementation of Minimax AI Algorithm on Tic-Tac-Toe
 ## What is Minimax?
 Minimax algorithm is a decision rule used in artificial intelligence, decision theory, game theory, statistics, and philosophy for minimizing the possible loss for a worst-case (maximum loss) scenario1. It is a kind of backtracking algorithm that is used in decision making and game theory to find the optimal move for a player, assuming that your opponent also plays optimally2. It is widely used in two-player turn-based games such as Tic-Tac-Toe, Backgammon, Mancala, Chess, etc.
 
-## Here's a pseudocode :- 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/80759221/228576543-f4759422-9336-4b5f-bf07-4f026c9066e3.png" 
-width ="70%" height="70%"
-</p>
 
 ## How does it works?
-- The minimax function takes two parameters: the node representing the current state of the game, and a boolean maximizingPlayer that indicates whether we are currently maximizing or minimizing the score.
+Minimax is a decision-making algorithm used in game theory, particularly in two-player games like Tic Tac Toe. The algorithm is used to determine the best possible move a player can make at any given point in the game. Here's how minimax works in Tic Tac Toe:
 
-- If the node is a terminal node (i.e., the game has ended), we return the value of the node.
-
-- If maximizingPlayer is true, we initialize bestValue to negative infinity and loop over all the child nodes of node. For each child node, we recursively call minimax with maximizingPlayer set to false to minimize the score. We update bestValue to be the maximum of bestValue and the returned value.
-
-- If maximizingPlayer is false, we initialize bestValue to positive infinity and loop over all the child nodes of node. For each child node, we recursively call minimax with maximizingPlayer set to true to maximize the score. We update bestValue to be the minimum of bestValue and the returned value.
-
-- We return bestValue as the optimal score for the current state of the game.
+1-The algorithm starts by creating a game tree that shows all possible moves and outcomes for both players.
+2-Each node in the game tree represents a possible state of the game, with edges representing the possible moves from that state.
+3-At the bottom of the tree, the algorithm assigns a score to each possible end state (win, loss, or draw) based on who wins the game.
+4-The algorithm then works its way back up the tree, evaluating each node's score based on whether it's a player's turn or the opponent's turn.
+5-The algorithm assumes that both players are playing optimally, so it alternates between maximizing the score for itself and minimizing the score for its opponent.
+6-Finally, the algorithm chooses the move that leads to the highest score for itself.
+In summary, minimax in Tic Tac Toe works by recursively evaluating all possible moves and outcomes in a game tree and choosing the move that leads to the best possible outcome for the player using the algorithm
 
 ## Game Tree
 <p align="center">
