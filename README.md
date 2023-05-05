@@ -11,7 +11,7 @@ Minimax algorithm is a decision rule used in artificial intelligence, decision t
 ## How does it works?
 Minimax is a decision-making algorithm used in game theory, particularly in two-player games like Tic Tac Toe. The algorithm is used to determine the best possible move a player can make at any given point in the game. Here's how minimax works in Tic Tac Toe:
 
-1-The algorithm starts by creating a game tree that shows all possible moves and outcomes for both players.
+1-The algorithm starts by creating a game tree that shows all possible moves and outcomes for both players.<br>
 2-Each node in the game tree represents a possible state of the game, with edges representing the possible moves from that state.
 3-At the bottom of the tree, the algorithm assigns a score to each possible end state (win, loss, or draw) based on who wins the game.
 4-The algorithm then works its way back up the tree, evaluating each node's score based on whether it's a player's turn or the opponent's turn.
